@@ -199,8 +199,7 @@ def run_evaluation_pipeline(experiment_id: str, data_csv_path: str, base_dir: st
     logger.info(f"Pipeline execution completed. All artifacts stored safely inside {exp_workspace}.")
 
 if __name__ == "__main__":
-    # Example execution configuration block
     run_evaluation_pipeline(
-        experiment_id="002_fixed_baseline",
-        data_csv_path="./data/MASTER_FINANCIAL_CORPUS_V1.csv"
+        experiment_id="003_kaggle_baseline",  # Incrementing ID to avoid workspace collision
+        data_csv_path="/kaggle/input/master-financial-corpus-v1/MASTER_FINANCIAL_CORPUS_V1.csv"
     )
