@@ -18,9 +18,9 @@ from src.core.config import ExperimentConfiguration
 from src.core.storage import StorageManager
 from src.core.checkpoint import CheckpointManager
 from src.core.embeddings import EmbeddingManager
-from src.retrieval.retriever import RetrievalManager
-from src.evaluation.evaluator import EvaluationManager
-from src.evaluation.statistics import StatisticsManager
+from src.core.retriever import RetrievalManager
+from src.core.evaluator import EvaluationManager
+from src.core.statistics import StatisticsManager
 
 from sklearn.model_selection import StratifiedKFold
 
