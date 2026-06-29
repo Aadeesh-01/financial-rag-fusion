@@ -58,7 +58,7 @@ def run_evaluation_pipeline(experiment_id: str, data_csv_path: str, base_dir: st
     logger.info(f"Dataset loaded successfully. Total documents: {len(df)}")
     
     # Validate required columns exist
-    required_cols = ["Title", "Content", "FinBERT_Label"]
+    required_cols = ["Title", "FinBERT_Label"]
     for col in required_cols:
         if col not in df.columns:
             raise KeyError(f"Missing required structural column: {col}")
@@ -66,7 +66,7 @@ def run_evaluation_pipeline(experiment_id: str, data_csv_path: str, base_dir: st
     # 5. Handle and Verify Corpus Dense Representations
     embedding_mgr = EmbeddingManager(exp_workspace, model_name=config.get("embedding_model"))
     # We use the text content as the document representation to search over
-    all_embeddings, emb_meta = embedding_mgr.get_or_create_embeddings(df, text_column="Content", corpus_id="financial_corpus_v1")
+    all_embeddings, emb_meta = embedding_mgr.get_or_create_embeddings(df, text_column="Title", corpus_id="financial_corpus_v1")
 
     # 6. Establish Deterministic Stratified 5-Fold Cross-Validation Slices
     # We use FinBERT sentiment labels to stratify splits cleanly across folds
@@ -94,7 +94,7 @@ def run_evaluation_pipeline(experiment_id: str, data_csv_path: str, base_dir: st
         test_embeddings = all_embeddings[test_idx]
 
         # Initialize indices restricted strictly to the current training partition
-        retriever = RetrievalManager(corpus_texts=train_df["Content"].tolist(), corpus_embeddings=train_embeddings)
+        retriever = RetrievalManager(corpus_texts=train_df["Title"].tolist(), corpus_embeddings=train_embeddings)
         
         # Process queries within the test partition slice
         # For evaluation efficiency in huge corpora, we can cap test runs or parse the complete partition
