@@ -200,6 +200,6 @@ def run_evaluation_pipeline(experiment_id: str, data_csv_path: str, base_dir: st
 
 if __name__ == "__main__":
     run_evaluation_pipeline(
-        experiment_id="003_kaggle_baseline",  # Incrementing ID to avoid workspace collision
-        data_csv_path="/kaggle/input/master-financial-corpus-v1/MASTER_FINANCIAL_CORPUS_V1.csv"
+        experiment_id="004_local_data_run", 
+        data_csv_path="./data/MASTER_FINANCIAL_CORPUS_V1.csv" # Pointing to the repo file!
     )
