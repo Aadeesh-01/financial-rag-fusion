@@ -201,6 +201,6 @@ def run_evaluation_pipeline(experiment_id: str, data_csv_path: str, base_dir: st
 if __name__ == "__main__":
     # Example execution configuration block
     run_evaluation_pipeline(
-        experiment_id="001_initial_baseline",
+        experiment_id="002_fixed_baseline",
         data_csv_path="./data/MASTER_FINANCIAL_CORPUS_V1.csv"
     )
