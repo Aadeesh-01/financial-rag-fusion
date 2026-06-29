@@ -44,7 +44,7 @@ def run_evaluation_pipeline(experiment_id: str, data_csv_path: str, base_dir: st
 
     # 3. Initialize Management Components
     config = ExperimentConfiguration(experiment_id, base_dir)
-    config.save(os.path.join(exp_workspace, "configs"))
+    config.save(exp_workspace)
     
     storage = StorageManager(exp_workspace)
     checkpoint = CheckpointManager(exp_workspace)
