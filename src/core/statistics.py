@@ -10,6 +10,7 @@ import numpy as np
 from scipy import stats
 import matplotlib.pyplot as plt
 import seaborn as sns
+from typing import List
 
 logger = logging.getLogger("StatisticsManager")
 
